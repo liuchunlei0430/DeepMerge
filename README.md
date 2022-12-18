@@ -77,6 +77,10 @@ Training and model config
 
 Other config
 + `--seed`: The random seed for training.
++ `--modality1`: The name of the first modality.
++ `--modality2`: The name of the second modality.
++ `--modality3`: The name of the third modality.
+
 
 ## Reference
 [1] Ramaswamy, A. et al. Immune dysregulation and autoreactivity correlate with disease severity in
