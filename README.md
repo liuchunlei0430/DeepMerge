@@ -42,7 +42,7 @@ write_h5(exprs_list = list(rna = train_rna, h5file_list = "/DeepMerge/data/Rama/
 
 ### Example dataset
 
-As an example, the processed CITE-seq dataset by RAMA et al. (GSM166489)[1] is provided for the example run, which is saved in `./DeepMerge/data/Rama/`. The data can be downloaded at 'https://www.dropbox.com/scl/fo/e5cdogwhj6k8stjmo9s7w/h?dl=0&rlkey=sxuusr69cco4jmzqk7vmwopxt'.
+As an example, the processed CITE-seq dataset by RAMA et al. (GSM166489)[1] is provided for the example run, which is saved in `./DeepMerge/data/Rama/`. The data can be downloaded at [link](https://github.com/sydneybiox/scJoint/blob/main/tutorial/CITE-seq%20and%20ASAP-seq%20integration%20using%20scJoint.ipynb](https://www.dropbox.com/scl/fo/e5cdogwhj6k8stjmo9s7w/h?dl=0&rlkey=sxuusr69cco4jmzqk7vmwopx).
 Users can prepare the example dataset as input for DeepMerge or use their own datasets.
 Training and testing on demo dataset will cost no more than 1 minute with GPU.
 
