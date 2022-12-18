@@ -25,8 +25,8 @@ parser.add_argument('--modality3', type=str, default="NULL", help='modality name
 parser.add_argument('--modality1_path', metavar='DIR', default='NULL', help='path to modality1 data')
 parser.add_argument('--modality2_path', metavar='DIR', default='NULL', help='path to modality2 data')
 parser.add_argument('--modality3_path', metavar='DIR', default='NULL', help='path to modality3 data')
-parser.add_argument('--cty', metavar='DIR', default='NULL', help='path to cell type ')
-parser.add_argument('--batch', metavar='DIR', default='NULL', help='path to batch information')
+parser.add_argument('--cty_path', metavar='DIR', default='NULL', help='path to cell type ')
+parser.add_argument('--batch_path', metavar='DIR', default='NULL', help='path to batch information')
 
 ##############  for training #################
 parser.add_argument('--batch_size', type=int, default=256, help='batch size')
@@ -65,8 +65,8 @@ if args.modality3_path !='NULL':
     hidden_modality3 = args.hidden_modality3
     modality3_path = args.modality3_path
     modality3 = args.modality3
-cty_path = args.cty
-batch_path = args.batch
+cty_path = args.cty_path
+batch_path = args.batch_path
 
 # read_data
 modality1_all = read_h5_data(modality1_path)
