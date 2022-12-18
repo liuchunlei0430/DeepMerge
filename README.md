@@ -1,6 +1,7 @@
-# DeepMerge: a unified framework for diagonal integration of multi-batch multi-modal single-cell omics data
+# DeepMerge: a unified framework for diagonal integration of multi-batch multimodal single-cell omics data
 
-DeepMerge is a method for batch correcting and integrating multimodal single-cell omics data using a multi-task deep learning framework. DeepMerge not only performs batch correction and integration across data modalities but also generates normalised and corrected data matrices that can be readily utilised for downstream analyses such as identifying differentially expressed genes, ADTs, and/or cis-regulatory elements (CREs) from multiple modalities of the batch corrected and integrated dataset.
+DeepMerge is a method for batch correcting and integrating multimodal single-cell omics data using a multi-task deep learning framework. DeepMerge not only performs batch correction and integration across data modalities but also generates normalised and corrected data matrices that can be readily utilised for downstream analyses such as identifying differentially expressed genes, ADTs, and/or cis-regulatory elements (CREs) from multiple modalities of the batch corrected and integrated dataset. By applying DeepMerge to a large collection of datasets generated from various biotechnological platforms, we demonstrate its utility for integrative analyses of multi-batch multimodal single-cell omics datasets.
+
 
 <img width=100% src="https://github.com/liuchunlei0430/DeepMerge/blob/main/img/main.png"/>
 
