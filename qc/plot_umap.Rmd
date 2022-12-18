@@ -56,7 +56,7 @@ sce_umap_dims <- as.data.frame(sce_umap_dims)
     plot1<-ggplot(sce_umap_dims,mapping = aes(x=V1, y=V2, col=as.factor(label)))+ geom_point()+scale_colour_manual(values = scPalette(length(names(table(label)))))+labs(x = "", y = "", title = "") + theme_classic()  +         theme(aspect.ratio = 1)+ theme(panel.grid =element_blank()) +theme(axis.text = element_blank()) +  theme(axis.ticks = element_blank()) +  theme(plot.title = element_text(hjust = 0.5,size=8),panel.spacing = unit(0, "lines")) 
     plot2<-ggplot(sce_umap_dims,mapping = aes(x=V1, y=V2, col=as.factor(batch)))+ geom_point()+scale_colour_manual(values = scPalette(length(names(table(batch)))))+labs(x = "", y = "", title = "") + theme_classic()  +         theme(aspect.ratio = 1)+ theme(panel.grid =element_blank()) +theme(axis.text = element_blank()) +  theme(axis.ticks = element_blank()) +  theme(plot.title = element_text(hjust = 0.5,size=8),panel.spacing = unit(0, "lines")) 
     ggsave(plot1, file="./../img/embedding_cty.pdf")
-    ggsave(plot1, file="./../img/embedding_batch.pdf")
+    ggsave(plot2, file="./../img/embedding_batch.pdf")
 ```
 
 # load reconstructed rna data 
@@ -82,7 +82,7 @@ sce_umap_dims <- as.data.frame(sce_umap_dims)
     plot1<-ggplot(sce_umap_dims,mapping = aes(x=V1, y=V2, col=as.factor(label)))+ geom_point()+scale_colour_manual(values = scPalette(length(names(table(label)))))+labs(x = "", y = "", title = "") + theme_classic()  +         theme(aspect.ratio = 1)+ theme(panel.grid =element_blank()) +theme(axis.text = element_blank()) +  theme(axis.ticks = element_blank()) +  theme(plot.title = element_text(hjust = 0.5,size=8),panel.spacing = unit(0, "lines")) 
     plot2<-ggplot(sce_umap_dims,mapping = aes(x=V1, y=V2, col=as.factor(batch)))+ geom_point()+scale_colour_manual(values = scPalette(length(names(table(batch)))))+labs(x = "", y = "", title = "") + theme_classic()  +         theme(aspect.ratio = 1)+ theme(panel.grid =element_blank()) +theme(axis.text = element_blank()) +  theme(axis.ticks = element_blank()) +  theme(plot.title = element_text(hjust = 0.5,size=8),panel.spacing = unit(0, "lines")) 
     ggsave(plot1, file="./../img/rna_cty.pdf")
-    ggsave(plot1, file="./../img/rna_batch.pdf")
+    ggsave(plot2, file="./../img/rna_batch.pdf")
 ```
 
 # load reconstructed adt data 
@@ -108,7 +108,7 @@ sce_umap_dims <- as.data.frame(sce_umap_dims)
     plot1<-ggplot(sce_umap_dims,mapping = aes(x=V1, y=V2, col=as.factor(label)))+ geom_point()+scale_colour_manual(values = scPalette(length(names(table(label)))))+labs(x = "", y = "", title = "") + theme_classic()  +         theme(aspect.ratio = 1)+ theme(panel.grid =element_blank()) +theme(axis.text = element_blank()) +  theme(axis.ticks = element_blank()) +  theme(plot.title = element_text(hjust = 0.5,size=8),panel.spacing = unit(0, "lines")) 
     plot2<-ggplot(sce_umap_dims,mapping = aes(x=V1, y=V2, col=as.factor(batch)))+ geom_point()+scale_colour_manual(values = scPalette(length(names(table(batch)))))+labs(x = "", y = "", title = "") + theme_classic()  +         theme(aspect.ratio = 1)+ theme(panel.grid =element_blank()) +theme(axis.text = element_blank()) +  theme(axis.ticks = element_blank()) +  theme(plot.title = element_text(hjust = 0.5,size=8),panel.spacing = unit(0, "lines")) 
     ggsave(plot1, file="./../img/adt_cty.pdf")
-    ggsave(plot1, file="./../img/adt_batch.pdf")
+    ggsave(plot2, file="./../img/adt_batch.pdf")
 ```
 
 
