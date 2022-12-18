@@ -7,7 +7,7 @@ DeepMerge is a method for batch correcting and integrating multimodal single-cel
 
 
 ## Installation
-DeepMerge is developed using PyTorch 1.9.1. We recommend using conda enviroment to install and run DeepMerge. We assume conda is installed. Note the following installation code snippets were tested on a Ubuntu system (v20.04) with NVIDIA GeForce 3090 GPU. The installation process needs about 15 minutes.
+DeepMerge is developed using PyTorch 1.9.1. We recommend using conda enviroment to install and run DeepMerge. We assume conda is installed. Note the following installation code snippets were tested on a Ubuntu system (v20.04) with NVIDIA GeForce 3090 GPU. The installation process needs about 5 minutes.
 
 ### Installation using provided environment
 Step 1: Create and activate the conda environment for DeepMerge using our provided file
@@ -23,8 +23,8 @@ git clone https://github.com/liuchunlei0430/DeepMerge.git
 ```
 
 
-## Preparing intput for Matilda
-DeepMerge’s main function takes expression data (e.g., RNA, ADT, ATAC) in `.h5` format and cell type labels in `.csv` format. DeepMerge expects raw count data for RNA and ADT modalities. For ATAC modality, DeepMerge expects the raw count data.
+## Preparing intput for DeepMerge
+DeepMerge’s main function takes raw count expression data (e.g., RNA, ADT, ATAC) in `.h5` format; also, it takes cell type labels and batch informations in `.csv` format. 
 
 An example for creating .h5 file from expression matrix in the R environment is as below:
 ```
@@ -37,12 +37,12 @@ write_h5 <- function(exprs_list, h5file_list) {
     h5write(colnames(exprs_list[[i]]), h5file_list[i], name = "matrix/barcodes")
   }  
 }
-write_h5(exprs_list = list(rna = train_rna, h5file_list = "/DeepMerge/data/TEA-seq/train_rna.h5")
+write_h5(exprs_list = list(rna = train_rna, h5file_list = "/DeepMerge/data/Rama/rna.h5")
 ```
 
 ### Example dataset
 
-As an example, the processed CITE-seq dataset by RAMA et al. (GSMxxxx) is provided for the example run, which is saved in `./DeepMerge/data/CITEseq/Rama/`.
+As an example, the processed CITE-seq dataset by RAMA et al. (GSM166489) is provided for the example run, which is saved in `./DeepMerge/data/Rama/`.
 Users can prepare the example dataset as input for DeepMerge or use their own datasets.
 Training and testing on demo dataset will cost no more than 1 minute with GPU.
 
@@ -50,45 +50,39 @@ Training and testing on demo dataset will cost no more than 1 minute with GPU.
 ### Training the DeepMerge model (see Arguments section for more details).
 ```
 cd DeepMerge
-cd main
-python main.py --rna [path_RNA] --adt [path_ADT] --atac [path_ATAC] --cty [path_cty] --batch [path_batch]
-# Example run
-python main.py --rna ../data/CITEseq/Rama/rna.h5 --adt ../data/CITEseq/Rama/adt.h5 --cty ../data/CITEseq/Rama/cty.csv --batch ../data/CITEseq/Rama/batch.csv
+sh run.sh
+```
+or you can specific the parameters on terminal
+```
+cd DeepMerge
+python main.py --lr 0.02 --epochs 10 --batch_size 256 --hidden_modality1 185 --hidden_modality2 30  --modality1_path "./data/rna.h5"  --modality2_path "./data/adt.h5"  --cty_path "./data/cty.csv" --batch_path "./data/batch.csv" --dataset "Rama" --modality1 "rna" --modality2 "adt"
 ```
 
 ### Argument
 Training dataset information
-+ `--rna`: path to training data RNA modality.
-+ `--adt`: path to training data ADT modality (can be null if ATAC is provided).
-+ `--atac`: path to training data ATAC modality (can be null if ADT is provided). Note ATAC data should be summarised to the gene level as "gene activity score".
-+ `--cty`: path to the labels of training data.
++ `--modality1_path`: path to the first modality.
++ `--modality2_path`: path to the second modality.
++ `--modality3_path`: path to the third modality (can be null if there is no data provided). 
++ `--cty_path`: path to the labels of data.
++ `--batch_path`: path to the batch information of data.
 
 Training and model config
-+ `--batch_size`: Batch size (set as 64 by default)
++ `--batch_size`: Batch size.
 + `--epochs`: Number of epochs.
 + `--lr`: Learning rate.
 + `--z_dim`: Dimension of latent space.
-+ `--hidden_rna`: Dimension of RNA branch.
-+ `--hidden_adt`: Dimension of ADT branch.
-+ `--hidden_atac`: Dimension of ATAC branch.
++ `--hidden_modality1`: Hidden layer dimension of the first modality branch.
++ `--hidden_modality2`: Hidden layer dimension of the second modality branch.
++ `--hidden_modality3`: Hidden layer dimension of the third modality branch.
 
 Other config
 + `--seed`: The random seed for training.
-+ `--augmentation`: Whether to augment simulated data.
-
-Note: after training, the model will be saved in `./Matilda/trained_model/`.
-
 
 ## Reference
 [1] Ramaswamy, A. et al. Immune dysregulation and autoreactivity correlate with disease severity in
 SARS-CoV-2-associated multisystem inflammatory syndrome in children. Immunity 54, 1083–
 1095.e7 (2021).
 
-[2] Ma, A., McDermaid, A., Xu, J., Chang, Y. & Ma, Q. Integrative Methods and Practical Challenges
-for Single-Cell Multi-omics. Trends Biotechnol. 38, 1007–1022 (2020).
-
-[3] Swanson, E. et al. Simultaneous trimodal single-cell measurement of transcripts, epitopes, and
-chromatin accessibility using TEA-seq. Elife 10, (2021).
 
 ## License
 
