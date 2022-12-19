@@ -82,7 +82,7 @@ Other config
 + `--modality3`: The name of the third modality.
 
 By running the `./qc/plot_TSNE.Rmd`, we can obtain the batch corrected data:
-<img width=100% src="https://github.com/liuchunlei0430/DeepMerge/blob/main/img/batch_corrected.png"/>
+<img width=75% src="https://github.com/liuchunlei0430/DeepMerge/blob/main/img/batch_corrected.png"/>
 
 ## Reference
 [1] Ramaswamy, A. et al. Immune dysregulation and autoreactivity correlate with disease severity in
