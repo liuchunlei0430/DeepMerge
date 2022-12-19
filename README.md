@@ -84,7 +84,7 @@ Other config
 ## Visualisation
 The TSNE visualisation of original data are:
 
-<img width=80% src="https://github.com/liuchunlei0430/DeepMerge/blob/main/img/original.png"/>
+<img width=50% src="https://github.com/liuchunlei0430/DeepMerge/blob/main/img/original.png"/>
 
 By running the `./qc/plot_TSNE.Rmd`, we can obtain the TSNE of the batch corrected data:
 
