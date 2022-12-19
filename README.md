@@ -88,7 +88,7 @@ The TSNE visualisation of original data are:
 
 By running the `./qc/plot_TSNE.Rmd`, we can obtain the TSNE of the batch corrected data:
 
-<img width=65% src="https://github.com/liuchunlei0430/DeepMerge/blob/main/img/batch_corrected.png"/>
+<img width=58% src="https://github.com/liuchunlei0430/DeepMerge/blob/main/img/batch_corrected.png"/>
 
 ## Reference
 [1] Ramaswamy, A. et al. Immune dysregulation and autoreactivity correlate with disease severity in
